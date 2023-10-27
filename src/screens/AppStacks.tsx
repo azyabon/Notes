@@ -1,8 +1,9 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {NOTES_SCREEN} from '../config/routes';
+import {NOTE_SCREEN, NOTES_SCREEN} from '../config/routes';
 import NotesScreen from './NotesScreen';
+import NoteScreen from './NoteScreen';
 
 export default function AppStacks() {
   const Stack = createStackNavigator();
@@ -13,6 +14,11 @@ export default function AppStacks() {
         <Stack.Screen
           name={NOTES_SCREEN}
           component={NotesScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={NOTE_SCREEN}
+          component={NoteScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
