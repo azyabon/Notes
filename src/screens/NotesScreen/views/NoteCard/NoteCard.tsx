@@ -29,7 +29,7 @@ export default function NoteCard(props: INoteCardProps) {
         {
           borderColor: getNoteColorByStatus(note.status),
           shadowColor: getNoteColorByStatus(note.status),
-          width: isListView ? '100%' : '47%',
+          width: isListView ? '100%' : '48%',
         },
       ]}>
       <View>
@@ -49,7 +49,7 @@ export default function NoteCard(props: INoteCardProps) {
         <Text style={styles.NoteCard__type}>{`type: ${note.type ?? '-'}`}</Text>
         <Text
           style={[
-            styles.NoteCard__type,
+            styles.NoteCard__deadline,
             {
               textDecorationLine:
                 note.status === NoteStatusEnum.EXPIRED ? 'underline' : 'none',

@@ -8,13 +8,13 @@ export const styles = StyleSheet.create({
   },
 
   NotesScreen__content: {
-    padding: 20,
     paddingBottom: 40,
   },
 
   NotesScreen__notes: {
-    marginTop: 20,
-    gap: 16,
+    padding: 20,
+    paddingTop: 0,
+    gap: 8,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
@@ -23,6 +23,8 @@ export const styles = StyleSheet.create({
   NotesScreen__header: {
     flexDirection: 'row',
     gap: 8,
+    padding: 20,
+    backgroundColor: colors.lightDark,
   },
 
   NotesScreen__search: {

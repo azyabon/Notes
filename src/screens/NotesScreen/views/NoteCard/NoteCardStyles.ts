@@ -44,6 +44,13 @@ export const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: '400',
     textAlign: 'left',
+    color: colors.gray,
+  },
+
+  NoteCard__deadline: {
+    fontSize: 10,
+    fontWeight: '400',
+    textAlign: 'left',
   },
 
   NoteCard__status: {
