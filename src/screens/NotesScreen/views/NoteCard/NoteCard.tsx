@@ -22,14 +22,19 @@ export default function NoteCard(props: INoteCardProps) {
 
   return (
     <Pressable
-      // @ts-ignore
-      onPress={() => navigate(NOTE_SCREEN)}
+      onPress={() =>
+        // @ts-ignore
+        navigate(NOTE_SCREEN, {
+          noteId: note.id,
+        })
+      }
       style={[
         styles.NoteCard,
         {
           borderColor: getNoteColorByStatus(note.status),
           shadowColor: getNoteColorByStatus(note.status),
           width: isListView ? '100%' : '48%',
+          opacity: note.isArchived ? 0.7 : 1,
         },
       ]}>
       <View>

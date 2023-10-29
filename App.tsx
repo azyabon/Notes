@@ -10,11 +10,11 @@ import './src/sheets/registry';
 function App(): JSX.Element {
   return (
     <SafeAreaProvider>
-      <SheetProvider>
-        <Provider store={store}>
+      <Provider store={store}>
+        <SheetProvider>
           <Layout />
-        </Provider>
-      </SheetProvider>
+        </SheetProvider>
+      </Provider>
     </SafeAreaProvider>
   );
 }

@@ -85,15 +85,18 @@ export default function NotesScreen() {
           </View>
         </View>
         <View style={styles.NotesScreen__notes}>
-          {notes.map((note: INote) => (
-            <NoteCard
-              key={note.id}
-              note={note}
-              isListView={isList}
-              withoutStatus={isShowStatus}
-            />
-          ))}
+          {notes
+            .filter((note: INote) => !note.isArchived)
+            .map((note: INote) => (
+              <NoteCard
+                key={note.id}
+                note={note}
+                isListView={isList}
+                withoutStatus={isShowStatus}
+              />
+            ))}
         </View>
+        {/*<NotesList notes={notes} />*/}
       </ScrollView>
     </View>
   );

@@ -6,4 +6,5 @@ export interface INote {
   status: string;
   type?: string;
   id: number;
+  isArchived: boolean;
 }

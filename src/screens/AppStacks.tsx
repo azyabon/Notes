@@ -1,27 +1,20 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer} from '@react-navigation/native';
-import {NOTE_SCREEN, NOTES_SCREEN} from '../config/routes';
-import NotesScreen from './NotesScreen';
+import {NOTE_SCREEN, TABS_SCREEN} from '../config/routes';
 import NoteScreen from './NoteScreen';
+import TabsNavigation from './AppTabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-export default function AppStacks() {
-  const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
+const MainStack = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name={NOTES_SCREEN}
-          component={NotesScreen}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name={NOTE_SCREEN}
-          component={NoteScreen}
-          options={{headerShown: false}}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator
+      screenOptions={{headerShown: false}}
+      initialRouteName={TABS_SCREEN}>
+      <Stack.Screen name={TABS_SCREEN} component={TabsNavigation} />
+      <Stack.Screen name={NOTE_SCREEN} component={NoteScreen} />
+    </Stack.Navigator>
   );
-}
+};
+
+export default MainStack;

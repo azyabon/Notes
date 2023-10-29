@@ -9,6 +9,8 @@ import {styles} from './TopBarStyles';
 interface ITopBarProps {
   isBack?: boolean;
   title: string;
+  rightIcon?: React.ReactNode;
+  onRightIconClick?: () => void;
 }
 
 export default function TopBar(props: ITopBarProps) {
@@ -24,7 +26,13 @@ export default function TopBar(props: ITopBarProps) {
         </Pressable>
       ) : null}
       <Text style={styles.TopBar__title}>{props.title}</Text>
-      <View style={{width: props.isBack ? 20 : 1}} />
+      {props.rightIcon ? (
+        <Pressable onPress={props.onRightIconClick}>
+          {props.rightIcon}
+        </Pressable>
+      ) : (
+        <View style={{width: props.isBack ? 20 : 1}} />
+      )}
     </View>
   );
 }
