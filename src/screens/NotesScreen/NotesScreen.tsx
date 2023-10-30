@@ -13,6 +13,7 @@ import SettingsIcon from '../../icons/SettingsIcon';
 import {useSelector} from 'react-redux';
 
 import {styles} from './NotesScreenStyles';
+import EmptyScreen from '../../shared/EmptyScreen';
 
 const HEIGHT_BEFORE_HIDE_BTNS = 2;
 
@@ -98,6 +99,7 @@ export default function NotesScreen() {
         </View>
         {/*<NotesList notes={notes} />*/}
       </ScrollView>
+      <EmptyScreen isShow={false} label={'No notes'} />
     </View>
   );
 }

@@ -7,9 +7,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import MiniButton from '../../ui/MiniButton';
 import RemoveIcon from '../../icons/RemoveIcon';
 import UnarchiveIcon from '../../icons/UnarchiveIcon';
+import {unarchivedNotes} from '../../actions/notes';
+import {colors} from '../../styles/colors';
 
 import {styles} from './ArchiveScreenStyles';
-import {unarchivedNotes} from '../../actions/notes';
 
 export default function ArchiveScreen() {
   const [refreshing, setRefreshing] = useState(false);
@@ -50,7 +51,12 @@ export default function ArchiveScreen() {
         </View>
       </ScrollView>
       <View style={styles.ArchiveScreen__control}>
-        <MiniButton width={'49%'} onPress={() => {}} icon={<RemoveIcon />} />
+        <MiniButton
+          backgroundColor={colors.red}
+          width={'49%'}
+          onPress={() => {}}
+          icon={<RemoveIcon />}
+        />
         <MiniButton
           width={'49%'}
           onPress={() => {

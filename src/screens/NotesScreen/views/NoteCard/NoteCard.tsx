@@ -34,7 +34,6 @@ export default function NoteCard(props: INoteCardProps) {
           borderColor: getNoteColorByStatus(note.status),
           shadowColor: getNoteColorByStatus(note.status),
           width: isListView ? '100%' : '48%',
-          opacity: note.isArchived ? 0.7 : 1,
         },
       ]}>
       <View>

@@ -16,6 +16,8 @@ import UnarchiveIcon from '../../icons/UnarchiveIcon';
 import {getNoteById} from '../../utils/getNoteById';
 
 import {styles} from './NoteScreenStyles';
+import Status from '../../ui/Status';
+import {getNoteColorByStatus} from '../../utils/getNoteColorByStatus';
 
 export default function NoteScreen({
   route,
@@ -90,7 +92,10 @@ export default function NoteScreen({
               title={'Status:'}
               children={
                 <Text style={styles.NoteScreen__value}>
-                  {getNoteLabelByStatus(note?.status)}
+                  <Status
+                    color={getNoteColorByStatus(note?.status)}
+                    label={getNoteLabelByStatus(note?.status)}
+                  />
                 </Text>
               }
             />
@@ -100,7 +105,7 @@ export default function NoteScreen({
               styles.NoteScreen__footer,
               {paddingBottom: insets.bottom + 20},
             ]}>
-            <Button maxWidth={'63%'} onPress={() => {}} label={'Edit'} />
+            <Button maxWidth={'65%'} onPress={() => {}} label={'Edit'} />
             <MiniButton
               onPress={() => {}}
               backgroundColor={colors.red}

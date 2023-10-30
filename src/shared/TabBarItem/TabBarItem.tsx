@@ -8,7 +8,6 @@ import {colors} from '../../styles/colors';
 interface TabBarItemProps {
   icon: (props: any) => Element;
   routeName: string;
-  tabName: string;
 }
 
 function TabBarItem(props: TabBarItemProps) {

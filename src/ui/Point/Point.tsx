@@ -5,7 +5,7 @@ import {styles} from './PointStyles';
 
 interface IColumnPointProps {
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   isRow?: boolean;
 }
 

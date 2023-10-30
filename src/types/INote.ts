@@ -7,4 +7,5 @@ export interface INote {
   type?: string;
   id: number;
   isArchived: boolean;
+  doneDate?: string;
 }
