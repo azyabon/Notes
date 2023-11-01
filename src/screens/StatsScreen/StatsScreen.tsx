@@ -8,12 +8,19 @@ import {NoteStatusEnum} from '../../enums/NoteStatusEnum';
 // @ts-ignore
 import {LineChart} from 'react-native-svg-charts';
 import Point from '../../ui/Point';
+import {useSelector} from 'react-redux';
+import {INote} from '../../types/INote';
+import {useStatistics} from '../../hooks/useStatistics';
 
 import {styles} from './StatsScreenStyles';
 
 export default function StatsScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const data = [50, 0, 40, 95, 4, 24, 85, 91, 35, 53, 53, 0, 50, 20, 80];
+  const {notes} = useSelector(
+    (state: {notes: {notes: INote[]}}) => state.notes,
+  );
+  const {total, archived, done, expired, waiting, doing} = useStatistics(notes);
 
   return (
     <View style={styles.StatsScreen}>
@@ -33,37 +40,37 @@ export default function StatsScreen() {
           <Point
             title={'Total notes:'}
             isRow
-            children={<Text style={styles.StatsScreen__point}>12</Text>}
+            children={<Text style={styles.StatsScreen__point}>{total}</Text>}
           />
           <Point
             title={'Archived notes:'}
             isRow
-            children={<Text style={styles.StatsScreen__point}>12</Text>}
+            children={<Text style={styles.StatsScreen__point}>{archived}</Text>}
           />
         </View>
         <View style={styles.StatsScreen__graphs}>
           <RadialGraph
             color={colors.green}
-            value={2}
-            maxValue={12}
+            value={doing}
+            maxValue={total - archived}
             title={getNoteLabelByStatus(NoteStatusEnum.DOING)}
           />
           <RadialGraph
             color={colors.red}
-            value={2}
-            maxValue={12}
+            value={expired}
+            maxValue={total - archived}
             title={getNoteLabelByStatus(NoteStatusEnum.EXPIRED)}
           />
           <RadialGraph
             color={colors.yellow}
-            value={2}
-            maxValue={12}
+            value={waiting}
+            maxValue={total - archived}
             title={getNoteLabelByStatus(NoteStatusEnum.WAITING)}
           />
           <RadialGraph
             color={colors.white}
-            value={2}
-            maxValue={12}
+            value={done}
+            maxValue={total - archived}
             title={getNoteLabelByStatus(NoteStatusEnum.DONE)}
           />
         </View>
